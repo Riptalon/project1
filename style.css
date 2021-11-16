@@ -13,7 +13,7 @@
             100%{background-position:0% 50%}
         }
 canvas {
-    background-color: rgb(39, 34, 34);
+    background-color: rgb(81, 91, 92);
     position: absolute;
     top: 150px;    
     border: 1px solid rgb(184, 179, 179);}

@@ -1,7 +1,7 @@
 var canvas = document.getElementById('game');
 var context = canvas.getContext('2d');
 
-var grid = 16;
+var grid = 12;
 var count = 0;
 
 var snake = {
@@ -15,6 +15,13 @@ var snake = {
 var apple = {
   x: 320,
   y: 320
+};
+var wall = {
+  x:50,
+  y:50,
+  height: 320,
+  width: 20
+
 };
 
 function getRandomInt(min, max) {
@@ -31,8 +38,8 @@ function loop() {
   count = 0;
   context.clearRect(0,0,canvas.width,canvas.height);
 
-  snake.x += snake.dx*0.2;
-  snake.y += snake.dy*0.2;
+  snake.x += snake.dx*0.8;
+  snake.y += snake.dy*0.8;
 
   if (snake.x < 0) {
     snake.dx = grid;
@@ -53,9 +60,33 @@ function loop() {
   if (snake.cells.length > snake.maxCells) {
     snake.cells.pop();
   }
-
+  context.fillStyle = 'blue';
+  context.fillRect(wall.x, wall.y, wall.width, wall.height);
   context.fillStyle = 'red';
   context.fillRect(apple.x, apple.y, grid-1, grid-1);
+
+  snake.cells.forEach(function(cell, index) {
+  
+    context.fillRect(cell.x, cell.y, grid-1, grid-1);  
+
+    var startWallx = wall.x;
+    var endWallx = wall.width+wall.x
+    var startWally = wall.y
+    var endWally = wall.height+wall.y
+
+    if (startWallx<snake.x && snake.x<endWallx && endWally>snake.y && snake.y>startWally) {
+      snake.dx=-snake.dx
+      snake.dy=-snake.dy
+      snake.maxCells++;
+      wall.x = getRandomInt(0, 80) * grid;
+      wall.y = getRandomInt(0, 40) * grid;
+      wall.width = getRandomInt(80, 150) ;
+      wall.height = getRandomInt(100, 300) ;
+    }
+  });
+
+
+
   snake.cells.forEach(function(cell, index) {
   
     context.fillRect(cell.x, cell.y, grid-1, grid-1);  
