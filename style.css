@@ -1,0 +1,31 @@
+.body {
+        display: flex;
+        align-items: center;
+        justify-content: center;    
+        background: linear-gradient(270deg, #222b72, #7f8192, #7b6a0c);
+        background-size: 600% 600%;
+        animation: AnimationName 48s ease infinite;
+        }
+        
+@keyframes AnimationName {
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+canvas {
+    background-color: rgb(39, 34, 34);
+    position: absolute;
+    top: 150px;    
+    border: 1px solid rgb(184, 179, 179);}
+
+.pentru {
+    color: rgb(214, 211, 210);
+    font-size: 40px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.mini {
+
+    color: cornsilk;
+    font-size: 12px;
+}
