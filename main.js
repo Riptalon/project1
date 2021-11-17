@@ -1,6 +1,5 @@
 var canvas = document.getElementById('game');
 var context = canvas.getContext('2d');
-
 var grid = 12;
 var count = 0;
 
@@ -32,7 +31,10 @@ function loop() {
   requestAnimationFrame(loop);
 
   if (++count < 1) {
+    
+    
     return;
+    
   }
 
   count = 0;
@@ -82,6 +84,9 @@ function loop() {
       wall.y = getRandomInt(0, 40) * grid;
       wall.width = getRandomInt(80, 150) ;
       wall.height = getRandomInt(100, 300) ;
+
+      document.getElementsByClassName('myScore')[0].innerHTML = snake.cells.length
+      console.log(document.getElementsByClassName('myScore')[0])
     }
   });
 
@@ -102,20 +107,23 @@ function loop() {
   });
 }
 
+document.getElementsByClassName('myScore')[0].innerHTML = snake.cells.length
+
+console.log(document.getElementsByClassName('myScore')[0])
 document.addEventListener('keydown', function(e) {
-  if (e.which === 37 && snake.dx === 0) {
+  if (e.which === 37 ) {
     snake.dx = -grid;
     snake.dy = 0;
   }
-  else if (e.which === 38 && snake.dy === 0) {
+  else if (e.which === 38 ) {
     snake.dy = -grid;
     snake.dx = 0;
   }
-  else if (e.which === 39 && snake.dx === 0) {
+  else if (e.which === 39 ) {
     snake.dx = grid;
     snake.dy = 0;
   }
-  else if (e.which === 40 && snake.dy === 0) {
+  else if (e.which === 40 ) {
     snake.dy = grid;
     snake.dx = 0;
   }

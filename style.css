@@ -29,3 +29,25 @@ canvas {
     color: cornsilk;
     font-size: 12px;
 }
+
+.myScore {
+    text-align: center;
+    position: absolute;
+    height:100%;
+    width: max-content;
+    color: blanchedalmond;
+    font-size: 70px;
+    margin-left: 50%;
+
+}
+
+.scoreB {
+    position: absolute;
+    top: 85%;
+    width: 10%;
+    height: 10%;
+    background-color: coral;
+    border: cyan;
+    border-width: 5px;
+    border-style: solid;
+}
